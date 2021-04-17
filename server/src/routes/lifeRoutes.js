@@ -50,12 +50,23 @@ router.patch("/updategame/:id", (request, response) => {
     .catch(() => {
     response.status(404).send("Sorry - there isn't a game that matches that id");
     });
-    console.log(`${request.params.gameName} successfully updated`);
+    console.log(`${request.body.gameName} successfully updated`);
 });
 
 //--------------- DELETE ROUTES ---------------//
 
-
+router.delete("/deletegame/:id", (request, response) => {
+    console.log(request.params.id);
+    console.log(request.body);
+    GameApi.findByIdAndDelete(request.params.id)
+    .then((data) => {
+        response.send(`${request.body.gameName} has been deleted`)
+        console.log(`${request.body.gameName} has been deleted`);
+    })
+    .catch(() => {
+    response.status(404).send("Sorry - there isn't a game that matches that id");
+    });
+});
 
 //--------------- EXPORT ---------------//
 
