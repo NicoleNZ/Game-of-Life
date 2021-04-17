@@ -6,6 +6,8 @@ const jwt = require("jsonwebtoken"); //this will be set up later
 //--------------- ROUTERS ---------------//
 
 const internalRouter = require("./routes/internalRoutes");
+const userRouter = require("./routes/userRoutes");
+const lifeRouter = require("./routes/lifeRoutes");
 
 //--------------- MONGOOSE ---------------//
 
@@ -21,6 +23,8 @@ app.use(express.json());
 app.use(cors());
 
 app.use("/internal", internalRouter);
+app.use("/user", userRouter);
+app.use("/life", lifeRouter);
 
 //--------------- PORT ---------------//
 

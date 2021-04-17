@@ -4,14 +4,10 @@ const express = require("express");
 
 const router = express.Router();
 
-//--------------- ROUTES ---------------//
+//--------------- GET ROUTES ---------------//
 
 router.get("/", (request, response) => {
-    response.send("Hi there - you've come to the internal route");
-});
-
-router.get("/health", (request, response) => {
-    response.send("Hello again my old friend - internal routes OK");
+    response.send("Hi there - you've come to the life route");
 });
 
 //--------------- EXPORT ---------------//
