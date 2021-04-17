@@ -9,7 +9,7 @@ const internalRouter = require("./routes/internalRoutes");
 
 //--------------- MONGOOSE ---------------//
 
-mongoose.connect("mongodb://localhost:27017/activities", {
+mongoose.connect("mongodb://localhost:27017/gameoflife", {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
