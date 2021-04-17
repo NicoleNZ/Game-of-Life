@@ -30,6 +30,12 @@ router.post("/register", (request, response) => {
     });
 });
 
+//--------------- PATCH ROUTES ---------------//
+
+
+//--------------- DELETE ROUTES ---------------//
+
+
 //--------------- EXPORT ---------------//
 
 module.exports = router;
