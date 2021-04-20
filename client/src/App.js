@@ -1,23 +1,22 @@
 import React, { useState } from "react";
 
-function App() {
+const numRows = 50;
+const numColumns = 50;
+
+const App = () => {
+  const [grid, setGrid] = useState(() => {
+    // this is the initial state I want to call
+    const rows = [];
+    for (let i = 0; i < numRows.length; i ++) {
+      rows.push();
+    }
+    console.log(rows);
+  });
+
+  //need to use state because the cells will be changing with each generation
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div>Hi</div>
   );
 }
 

@@ -64,18 +64,23 @@ for (let a = 0; a < gameOfLifeObjectArray.length; a ++) {
     
     let i = gameOfLifeObjectArray[a].location[0];
     let j = gameOfLifeObjectArray[a].location[1];
+    console.log("[i,j]", [i,j]);
+    
+    findNeighbours.forEach( e => {
+        
+        const loc1 = i + e[0];
+        const loc2 = j + e[1];
+        console.log("i", i, "e[0]", e[0], "loc1", loc1);
+        console.log("j",j,"e[1]", e[1],"loc2",loc2);
+        
+        const thisNeighbour = gameOfLifeObjectArray.findIndex(element => element.location[0] === loc1 && element.location[1] === loc2);
+        console.log(thisNeighbour);
 
-    findNeighbours.forEach(([x,y]) => {
-        const loc1 = i + x;
-        const loc2 = j + y;
-
-        if(gameOfLifeObjectArray[a].location[loc1,loc2] && gameOfLifeObjectArray[a].location[loc1,loc2]) {
-            if (gameOfLifeObjectArray[a].state === true) {
-                numberOfAliveNeighbours = numberOfAliveNeighbours + 1
-            };
-        };
-});
+        // if(gameOfLifeObjectArray[thisNeighbour].state === true) {
+        //     numberOfAliveNeighbours = numberOfAliveNeighbours + 1;
+        // };
+    });
 };
-console.log(numberOfAliveNeighbours);
+console.log("number of alive neighbours", numberOfAliveNeighbours);
 //Create IF statements to handle each of the Game of Life rules
 
