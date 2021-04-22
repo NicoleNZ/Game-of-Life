@@ -65,14 +65,15 @@ const findNeighbours = [[0, 1], [0, -1], [1, -1], [-1, 1], [1, 1], [-1, -1], [1,
 
 //Create function to count how many alive neighbours a cell has.
 
-let numberOfAliveNeighbours = 0;
+
 
 for (let a = 0; a < gameOfLifeObjectArray.length; a ++) {
     
     let i = gameOfLifeObjectArray[a].location[0];
     let j = gameOfLifeObjectArray[a].location[1];
     console.log("[i,j]", [i,j]);
-    
+    let numberOfAliveNeighbours = 0;
+
     findNeighbours.forEach( e => {
         
         const loc1 = i + e[0];
@@ -83,12 +84,28 @@ for (let a = 0; a < gameOfLifeObjectArray.length; a ++) {
         const thisNeighbour = gameOfLifeObjectArray.findIndex(element => element.location[0] === loc1 && element.location[1] === loc2);
         if(gameOfLifeObjectArray[thisNeighbour] !== undefined) {
             if(gameOfLifeObjectArray[thisNeighbour].state === true) {
+                
                 numberOfAliveNeighbours = numberOfAliveNeighbours + 1;
             }
         };
     });
+    console.log("number of alive neighbours", numberOfAliveNeighbours);
+    
+    console.log(gameOfLifeObjectArray[a].state);
+    if(numberOfAliveNeighbours === 3 && gameOfLifeObjectArray[a].state === true) {
+        gameOfLifeObjectArray[a].state = true;
+    } else if(numberOfAliveNeighbours === 2 && gameOfLifeObjectArray[a].state === true) {
+        gameOfLifeObjectArray[a].state = true;
+    } else if(numberOfAliveNeighbours < 2) {
+        gameOfLifeObjectArray[a].state = false;
+    } else if(numberOfAliveNeighbours > 3) {
+        gameOfLifeObjectArray[a].state = false;
+    } else if(numberOfAliveNeighbours === 3 && gameOfLifeObjectArray[a].state === false) {
+        gameOfLifeObjectArray[a].state = true
+    };
+    console.log(gameOfLifeObjectArray[a].state);
 };
-console.log("number of alive neighbours", numberOfAliveNeighbours);
+
 
 //Create IF statements to handle each of the Game of Life rules
 
