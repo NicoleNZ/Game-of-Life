@@ -81,8 +81,10 @@ for (let a = 0; a < gameOfLifeObjectArray.length; a ++) {
         console.log("j",j,"e[1]", e[1],"loc2",loc2);
         
         const thisNeighbour = gameOfLifeObjectArray.findIndex(element => element.location[0] === loc1 && element.location[1] === loc2);
-        if(gameOfLifeObjectArray[thisNeighbour].state === true) {
-            
+        if(gameOfLifeObjectArray[thisNeighbour] !== undefined) {
+            if(gameOfLifeObjectArray[thisNeighbour].state === true) {
+                numberOfAliveNeighbours = numberOfAliveNeighbours + 1;
+            }
         };
     });
 };
