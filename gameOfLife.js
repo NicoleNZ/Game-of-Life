@@ -1,4 +1,3 @@
-//Create 2D array that forms the grid
 
 // const createGrid = (rows) => {
 //     const gridArray = [];
@@ -8,64 +7,53 @@
 //     return gridArray;
 // };
 
-// const gameOfLight = createGrid(3);
-// console.log(gameOfLight);
+// console.log(createGrid(3));
 
-// const gameOfLifeStructureArray = [
-//     [1,2,3],[4,5,6],[7,8,9]];
-// //     [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
-// //     [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
-// //     [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
-// //     [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
-// //     [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
-// //     [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
-// //     [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
-// //     [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
-// //     [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
-// //     [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
-// //     [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
-// //     [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
-// //     [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
-// //     [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
-// //     [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
-// //     [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
-// //     [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
-// //     [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
-// //     [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
-// //     [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
-
-// // ];
-
-const getRandomInt = (max) => {
-    let outcome = Math.floor(Math.random() * max);
-    if (outcome === 0) {
-        return false;
-    } else if (outcome === 1) {
-        return true;
-    };
-};
-
-//Create FOR loop, to loop through each element in the array 
-//Create a new object with each iteration, that holds the cell location and randomly assigns dead or alive state.
+//Create 2D array to form the grid
 
 const gameOfLifeObjectArray = [];
-
-for (let i = 0; i < 3; i ++) {
-    for (let j = 0; j < 3; j ++) {
-        const cell = {};
-        cell['location'] = [i,j];
-        cell['state'] = getRandomInt(2);
-        gameOfLifeObjectArray.push(cell);
-    };
-};
-console.log(gameOfLifeObjectArray);
 
 //Create a list of all the possible neighbours a cell might have
 
 const findNeighbours = [[0, 1], [0, -1], [1, -1], [-1, 1], [1, 1], [-1, -1], [1, 0], [-1, 0]];
 
-//Create function to count how many alive neighbours a cell has.
-const runGame = () => {
+//Create function to generate first generation
+
+const firstGeneration = () => {
+
+    //create function to randomly assign dead or alive to each cell
+
+    const assignFirstState = (max) => {
+        let outcome = Math.floor(Math.random() * max);
+        if (outcome === 0) {
+            return false;
+        } else if (outcome === 1) {
+            return true;
+        };
+    };
+    
+    //Create FOR loop, to loop through each element in a given-sized grid
+    //Create a new object with each iteration, that holds the cell location and randomly assigns dead or alive state via assignFirstState function  
+    
+    for (let i = 0; i < 3; i ++) {
+        for (let j = 0; j < 3; j ++) {
+            const cell = {};
+            cell['location'] = [i,j];
+            cell['state'] = assignFirstState(2);
+            gameOfLifeObjectArray.push(cell);
+        };
+    };
+    console.log({gameOfLifeObjectArray});
+
+};
+
+firstGeneration();
+
+
+const nextGeneration = () => {
+    
+    console.log(gameOfLifeObjectArray);
+    
     for (let a = 0; a < gameOfLifeObjectArray.length; a ++) {
         
         let i = gameOfLifeObjectArray[a].location[0];
@@ -105,10 +93,10 @@ const runGame = () => {
         } else if(numberOfAliveNeighbours === 3 && gameOfLifeObjectArray[a].state === false) {
             gameOfLifeObjectArray[a].state = true
         };
+
         console.log(gameOfLifeObjectArray[a].state);
+
     };
 };
 
-runGame();
-
-
+nextGeneration();

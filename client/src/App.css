@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+.cell {
+  display: inline;
+  border-style: solid;
+  color: #282c34;
+  width: 100px;
+  height: 100px;
+}
+
+.grid {
+  list-style-type: none
+}
+
