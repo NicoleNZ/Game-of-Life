@@ -1,19 +1,11 @@
 import { useState } from "react";
-
-const testGrid = [
-    { location: [ 0, 0 ], state: false },
-    { location: [ 0, 1 ], state: false },
-    { location: [ 0, 2 ], state: true },
-    { location: [ 1, 0 ], state: false },
-    { location: [ 1, 1 ], state: false },
-    { location: [ 1, 2 ], state: true },
-    { location: [ 2, 0 ], state: false },
-    { location: [ 2, 1 ], state: false },
-    { location: [ 2, 2 ], state: true }
-];
+import { Container, Row, Col, Button } from "react-bootstrap";
+import { FirstGeneration } from "./FirstGeneration";
+import { NextGeneration } from "./NextGeneration";
 
 export const Grid = () => {
-    const [grid, setGrid] = useState(testGrid);
+    
+    const [grid, setGrid] = useState(FirstGeneration);
     
     const createGrid = [];
 
@@ -21,30 +13,39 @@ export const Grid = () => {
     let columns = []; 
 
     for (let i = 0; i < grid.length; i++) {
-        console.log({i});
-        console.log(grid[i]);
         if(grid[i].location[0] > currentRow) {
-            console.log("add row");
-                createGrid.push(columns);
-
+            
+            createGrid.push(columns);
             currentRow = grid[i].location[0];
 
-            if(grid[i].location[0] === currentRow) {
-                columns.push(<div className="cell" style={{ width: "100px", height: "100px" }}>hi</div>)
+            if(grid[i].location[0] === currentRow && grid[i].state === true) {
+                columns.push(<div className="liveCell" style={{ display: "inline-flex" }}></div>)
+            } 
+            
+            else if (grid[i].location[0] === currentRow && grid[i].state === false) {
+                columns.push(<div className="deadCell" style={{ display: "inline-flex" }}></div>)
             }
         };
-
     };
     console.log({createGrid});
 
-    const renderGrid = createGrid.map((el) => {
-        return <li>{el}</li>
-    });
-
     return (
-        <div> 
-        <ul className="grid">{renderGrid}</ul>
-        </div>
+        <Container className="container">
+        <Row>
+            <Col>
+                <Button onClick={() => setGrid(NextGeneration)}></Button>
+            </Col>
+        </Row>
+        <Row>
+            <Col>
+            <div className="grid"> 
+                {createGrid.map((el) => {
+                return el
+                })}
+            </div>
+            </Col>
+        </Row>
+        </Container>
     );
 
 }
