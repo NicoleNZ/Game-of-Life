@@ -16,8 +16,8 @@ export const FirstGeneration = () => {
         //Create FOR loop, to loop through each element in a given-sized grid
         //Create a new object with each iteration, that holds the cell location and randomly assigns dead or alive state via assignFirstState function  
         
-        for (let i = 0; i < 50; i ++) {
-            for (let j = 0; j < 50; j ++) {
+        for (let i = 0; i < 10; i ++) {
+            for (let j = 0; j < 10; j ++) {
                 const cell = {};
                 cell['location'] = [i,j];
                 cell['state'] = assignFirstState(2);
