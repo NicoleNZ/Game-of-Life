@@ -46,12 +46,13 @@ export const Grid = () => {
     for (let i = 0; i < currentGrid.length; i++) {
         // console.log('check this: ', currentGrid[i].location[0]);
       if (currentGrid[i].location[0] === currentRow && currentGrid[i].state === true) {
-          columns.push(<div className="liveCell" style={{ display: "inline-flex" }}>{currentGrid[i].location}</div>          )
+          columns.push(<div className="liveCell" style={{ display: "inline-flex" }}></div>          
+          )
       };
       
       if (currentGrid[i].location[0] === currentRow && currentGrid[i].state === false) {
         columns.push(
-              <div className="deadCell" style={{ display: "inline-flex" }}>{currentGrid[i].location}</div>
+              <div className="deadCell" style={{ display: "inline-flex" }}></div>
           )
       } 
       else if (currentGrid[i].location[0] > currentRow && currentGrid[i + 1] !== undefined) {
@@ -60,12 +61,13 @@ export const Grid = () => {
           currentRow = currentGrid[i].location[0];
           columns = [];
           if (currentGrid[i].location[0] === currentRow && currentGrid[i].state === true) {
-            columns.push(<div className="liveCell" style={{ display: "inline-flex" }}>{currentGrid[i].location}</div>          )
+            columns.push(<div className="liveCell" style={{ display: "inline-flex" }}></div>          
+            )
           };
         
           if (currentGrid[i].location[0] === currentRow && currentGrid[i].state === false) {
             columns.push(
-                <div className="deadCell" style={{ display: "inline-flex" }}>{currentGrid[i].location}</div>
+                <div className="deadCell" style={{ display: "inline-flex" }}></div>
             );
           }
       }
@@ -75,12 +77,13 @@ export const Grid = () => {
           currentRow = currentGrid[i].location[0];
           columns = [];
           if (currentGrid[i].location[0] === currentRow && currentGrid[i].state === true) {
-            columns.push(<div className="liveCell" style={{ display: "inline-flex" }}>{currentGrid[i].location}</div>          )
+            columns.push(<div className="liveCell" style={{ display: "inline-flex" }}></div>          
+            )
           };
         
           if (currentGrid[i].location[0] === currentRow && currentGrid[i].state === false) {
             columns.push(
-                <div className="deadCell" style={{ display: "inline-flex" }}>{currentGrid[i].location}</div>
+                <div className="deadCell" style={{ display: "inline-flex" }}></div>
             );
           }
           createGridHtml.push(columns);
@@ -97,7 +100,7 @@ export const Grid = () => {
   };
 
   return (
-    <Container className="container">
+    <Container className="grid-container">
       <Row>
         <Col>
           <Button onClick={processNextGeneration}>Button</Button>
@@ -115,3 +118,4 @@ export const Grid = () => {
     </Container>
   );
 };
+

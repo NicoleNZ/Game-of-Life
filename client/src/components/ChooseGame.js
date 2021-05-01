@@ -1,21 +1,55 @@
-import React from "react";
+import React, { useState } from "react";
+import { Container, Col, Row } from "react-bootstrap";
 
-const ChooseGame = () => {
+export const ChooseGame = () => {
 
-    const [gameSpecs, setGameSpecs] = useState([]);
+    const [game, setGames] = useState([]);
     const [editGame, setEditGame] = useState({
         gameName: "",
-        gameSpeed: "",
-        cellIcon: ""
+        gameSpeed: ""
     });
     const [deleteGame, setDeleteGame] = useState({
         gameName: "",
-        gameSpeed: "",
-        cellIcon: ""
+        gameSpeed: ""
     });
 
-    return (
-        <div></div>
+    const handleGameSubmit = (
+        gameName,
+        gameSpeed) => {
+            const newGame = {
+                gameName: gameName,
+                gameSpeed: gameSpeed
+            };
+    
+        const newGames = [... game];
+        newGames.push(newGame);
+        setGames(newGames);
+        
+        fetch("http://localhost:4000/api/life/newgame", { 
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(newGame),
+        })
+        .then((response) => {
+        console.log("MongoDB response: ", response);
+        });  
+    };
 
+    return (
+        <div>
+            <Container>
+                <Col>
+                    <Row>
+                        <form>
+
+                        </form>
+                    </Row>
+                </Col>
+            </Container>
+            
+
+        </div>
     )
 }

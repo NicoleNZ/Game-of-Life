@@ -1,67 +1,88 @@
-.App {
+.background {
+  background-image: url(https://wallpapercave.com/wp/wp2280996.jpg);
+}
+
+.navbar {
+  background-color: black;
+  padding: 10px;
+  text-align: center;
+  border-color: white;
+  border-bottom-style: solid;
+  margin-bottom: 10px;
+}
+
+.header {
+  color: #03c04a;
+  margin: 20px;
+  padding: 20px;
+  font-size: 50px;
+  font-family: 'Raleway', sans-serif;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.tagline {
+  color: #03c04a;
+  margin: 20px;
+  padding: 20px;
+  font-size: 20px;
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.nav-link {
+  color: #03c04a;
+  float: right;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.form {
+  background-color: black;
+  border-style: solid;
+  border-color: black;
+  width: 50%;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.App-link {
-  color: #61dafb;
+.form-heading {
+  color: gold;
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.labels {
+  color: gold;
+  font-family: 'Raleway', sans-serif;
 }
 
 .liveCell {
   border-style: solid;
   background-color: yellow;
   border-width: 1px;
-  width: 20px;
-  height: 20px;
-  padding: 10px;
+  width: 1px;
+  height: 1px;
+  padding: 7px;
   margin-right: 1px;
 }
 
 .deadCell {
   border-style: solid;
+  background-color: black;
   border-width: 1px;
-  width: 20px;
-  height: 20px;
-  padding: 10px;
+  width: 1px;
+  height: 1px;
+  padding: 7px;
   margin-right: 1px;
 }
 
 .grid {
   list-style-type: none;
-  margin: 20px
+  margin: 1px;
+  margin-left: 10px;
 }
 
-.container {
-  margin-left: 400px;
-  margin-right: 400px;
+.grid-container {
+  border: #03c04a;
+  border-style: solid;
+  width: auto;
 }
