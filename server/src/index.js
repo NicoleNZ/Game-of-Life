@@ -1,7 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const jwt = require("jsonwebtoken"); //this will be set up later
 
 //--------------- ROUTERS ---------------//
 
@@ -22,9 +21,10 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+
 app.use("/internal", internalRouter);
-app.use("/user", userRouter);
-app.use("/life", lifeRouter);
+app.use("/api/user", userRouter);
+app.use("/api/life", lifeRouter);
 
 //--------------- PORT ---------------//
 

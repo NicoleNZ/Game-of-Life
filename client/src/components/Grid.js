@@ -71,7 +71,7 @@ export const Grid = () => {
       }
       else if (currentGrid[i + 1] === undefined) {
         createGridHtml.push(columns);
-        console.log("undefined columns", columns);
+        // console.log("undefined columns", columns);
           currentRow = currentGrid[i].location[0];
           columns = [];
           if (currentGrid[i].location[0] === currentRow && currentGrid[i].state === true) {
@@ -86,7 +86,7 @@ export const Grid = () => {
           createGridHtml.push(columns);
       };
   };
-  console.log("this is createGridHtml", createGridHtml);
+  // console.log("this is createGridHtml", createGridHtml);
   setGridHtml(createGridHtml);
   };
 
@@ -95,10 +95,6 @@ export const Grid = () => {
     setGrid(newGrid);
     transFormGridIntoHtml(grid);
   };
-
-  // useEffect(() => {;
-  //   transFormGridIntoHtml(grid); 
-  //   }, []);
 
   return (
     <Container className="container">

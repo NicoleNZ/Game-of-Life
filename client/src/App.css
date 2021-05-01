@@ -41,6 +41,8 @@
   border-style: solid;
   background-color: yellow;
   border-width: 1px;
+  width: 20px;
+  height: 20px;
   padding: 10px;
   margin-right: 1px;
 }
@@ -48,6 +50,8 @@
 .deadCell {
   border-style: solid;
   border-width: 1px;
+  width: 20px;
+  height: 20px;
   padding: 10px;
   margin-right: 1px;
 }
@@ -58,6 +62,6 @@
 }
 
 .container {
-  margin-left: 120px;
-  margin-right: 120px;
+  margin-left: 400px;
+  margin-right: 400px;
 }
