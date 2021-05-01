@@ -1,28 +1,18 @@
-
 export const FirstGeneration = () => {
+  const gameOfLifeObjectArray = [];
 
-    const gameOfLifeObjectArray = [];
-        //create function to randomly assign dead or alive to each cell
-    
-        const assignFirstState = (max) => {
-            let outcome = Math.floor(Math.random() * max);
-            if (outcome < 5) {
-                return false;
-            } else if (outcome === 6) {
-                return true;
-            };
-        };
-        
-        //Create FOR loop, to loop through each element in a given-sized grid
-        //Create a new object with each iteration, that holds the cell location and randomly assigns dead or alive state via assignFirstState function  
-        
-        for (let i = 0; i < 50; i ++) {
-            for (let j = 0; j < 50; j ++) {
-                const cell = {};
-                cell['location'] = [i,j];
-                cell['state'] = assignFirstState(7);
-                gameOfLifeObjectArray.push(cell);
-            };
-        };
-        return gameOfLifeObjectArray;
-    };
+  for (let i = 0; i < 5; i++) {
+    const row = [];
+    for (let j = 0; j < 5; j++) {
+      // 50/50 chance of cell being alive or dead
+      // Math.random() always generates a value between 0 to 1 for e.g. 0.2 or 0.78
+      // there's a 50% chance it will be higher than 0.5
+      // increasing the 0.5 value will give you a higher probability of dead cells and vice versa
+      const cell = Math.random() < 0.5;
+
+      row.push(cell);
+    }
+    gameOfLifeObjectArray.push(row);
+  }
+  return gameOfLifeObjectArray;
+};

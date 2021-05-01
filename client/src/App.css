@@ -16,7 +16,7 @@
   margin: 20px;
   padding: 20px;
   font-size: 50px;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   text-align: center;
 }
 
@@ -25,7 +25,7 @@
   margin: 20px;
   padding: 20px;
   font-size: 20px;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   text-align: center;
 }
 
@@ -47,12 +47,12 @@
 .form-heading {
   color: gold;
   text-align: center;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 
 .labels {
   color: gold;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 
 .liveCell {
