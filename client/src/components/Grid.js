@@ -9,8 +9,9 @@ export const Grid = () => {
 
   useEffect(() => {
     const firstGen = FirstGeneration();
-    transFormGridIntoHtml(firstGen);
     setGrid(firstGen);
+    transFormGridIntoHtml(firstGen);
+
     // let currentRow = -1;
     // let columns = [];
     // const createGrid = [];
@@ -38,12 +39,12 @@ export const Grid = () => {
 }, []);
 
   const transFormGridIntoHtml = (currentGrid) => {
-    console.log('currentGrid',currentGrid);
+    // console.log('currentGrid',currentGrid);
     let currentRow = 0;
     let columns = [];
     const createGridHtml = [];
     for (let i = 0; i < currentGrid.length; i++) {
-        console.log('check this: ', currentGrid[i].location[0]);
+        // console.log('check this: ', currentGrid[i].location[0]);
       if (currentGrid[i].location[0] === currentRow && currentGrid[i].state === true) {
           columns.push(<div className="liveCell" style={{ display: "inline-flex" }}>{currentGrid[i].location}</div>          )
       };
@@ -55,7 +56,7 @@ export const Grid = () => {
       } 
       else if (currentGrid[i].location[0] > currentRow && currentGrid[i + 1] !== undefined) {
         createGridHtml.push(columns);
-        console.log("hi columns: ", columns);
+        // console.log("hi columns: ", columns);
           currentRow = currentGrid[i].location[0];
           columns = [];
           if (currentGrid[i].location[0] === currentRow && currentGrid[i].state === true) {
@@ -92,7 +93,12 @@ export const Grid = () => {
   const processNextGeneration = () => {
     const newGrid = nextGeneration(grid);
     setGrid(newGrid);
+    transFormGridIntoHtml(grid);
   };
+
+  // useEffect(() => {;
+  //   transFormGridIntoHtml(grid); 
+  //   }, []);
 
   return (
     <Container className="container">
