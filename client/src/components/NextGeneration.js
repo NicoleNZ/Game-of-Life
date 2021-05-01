@@ -1,54 +1,40 @@
 import { findNeighbours } from "../constants";
 
-export const nextGeneration = (currentGrid) => {
+export const nextGeneration = (grid) => {
+  // grid has multiple rows, each row has cells
+  // map over each row
+  return grid.map((row, i) => {
+    // map over each cell in a row
+    return row.map((cell, j) => {
+      let numberOfAliveNeighbours = 0;
+      // find total number of neighbours for a given cell
+      findNeighbours.forEach((e) => {
+        const loc1 = i + e[0];
+        const loc2 = j + e[1];
 
-    const runNextGeneration = [...currentGrid];
-    // console.log(runNextGeneration);
-
-    for (let a = 0; a < runNextGeneration.length; a ++) {
-        // console.log(runNextGeneration[a])
-        let i = runNextGeneration[a].location[0];
-        let j = runNextGeneration[a].location[1];
-        // console.log("[i,j]", [i,j]);
-        let numberOfAliveNeighbours = 0;
-
-        findNeighbours.forEach( e => {
-            
-            const loc1 = i + e[0];
-            const loc2 = j + e[1];
-            // console.log("i", i, "e[0]", e[0], "loc1", loc1);
-            // console.log("j",j,"e[1]", e[1],"loc2",loc2);
-            
-            const thisNeighbour = runNextGeneration.findIndex(element => element.location[0] === loc1 && element.location[1] === loc2);
-            if(runNextGeneration[thisNeighbour] !== undefined) {
-                if(runNextGeneration[thisNeighbour].state === true) {
-                    
-                    numberOfAliveNeighbours = numberOfAliveNeighbours + 1;
-                }
-            };
-        });
+        // valid neighbours are only when i/j is greater or equal to 0
+        // if row (grid[loc1]) is undefined then they wont hav eany cells
+        if (loc1 >= 0 && loc2 >= 0 && grid[loc1] !== undefined) {
+          const thisNeighbour = grid[loc1][loc2];
+          if (thisNeighbour) {
+            numberOfAliveNeighbours++;
+          }
+        }
         // console.log("number of alive neighbours", numberOfAliveNeighbours);
+      });
 
-    //Create IF statements to handle each of the Game of Life rules
-        
-        // console.log(runNextGeneration[a].state);
-
-        if(numberOfAliveNeighbours === 3 && runNextGeneration[a].state === true) {
-            runNextGeneration[a].state = true;
-        } else if(numberOfAliveNeighbours === 2 && runNextGeneration[a].state === true) {
-            runNextGeneration[a].state = true;
-        } else if(numberOfAliveNeighbours < 2) {
-            runNextGeneration[a].state = false;
-        } else if(numberOfAliveNeighbours > 3) {
-            runNextGeneration[a].state = false;
-        } else if(numberOfAliveNeighbours === 3 && runNextGeneration[a].state === false) {
-            runNextGeneration[a].state = true
-        };
-
-        
-
-    };
-    // console.log(runNextGeneration);
-    return runNextGeneration;
-    
+      // apply rules, return true if cell should remain alive, false if not
+      if (
+        (numberOfAliveNeighbours === 2 || numberOfAliveNeighbours === 3) &&
+        cell
+      ) {
+        return true;
+      } else if (numberOfAliveNeighbours < 2 || numberOfAliveNeighbours > 3) {
+        return false;
+      } else if (numberOfAliveNeighbours === 3 && !cell) {
+        return true;
+      }
+      return cell;
+    });
+  });
 };
