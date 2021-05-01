@@ -2,13 +2,13 @@ import { findNeighbours } from "../constants";
 
 export const nextGeneration = (currentGrid) => {
 
-    const gameOfLifeObjectArray = [...currentGrid];
-    console.log(gameOfLifeObjectArray);
+    const runNextGeneration = [...currentGrid];
+    console.log(runNextGeneration);
 
-    for (let a = 0; a < gameOfLifeObjectArray.length; a ++) {
-        console.log(gameOfLifeObjectArray[a])
-        let i = gameOfLifeObjectArray[a].location[0];
-        let j = gameOfLifeObjectArray[a].location[1];
+    for (let a = 0; a < runNextGeneration.length; a ++) {
+        console.log(runNextGeneration[a])
+        let i = runNextGeneration[a].location[0];
+        let j = runNextGeneration[a].location[1];
         console.log("[i,j]", [i,j]);
         let numberOfAliveNeighbours = 0;
 
@@ -19,9 +19,9 @@ export const nextGeneration = (currentGrid) => {
             console.log("i", i, "e[0]", e[0], "loc1", loc1);
             console.log("j",j,"e[1]", e[1],"loc2",loc2);
             
-            const thisNeighbour = gameOfLifeObjectArray.findIndex(element => element.location[0] === loc1 && element.location[1] === loc2);
-            if(gameOfLifeObjectArray[thisNeighbour] !== undefined) {
-                if(gameOfLifeObjectArray[thisNeighbour].state === true) {
+            const thisNeighbour = runNextGeneration.findIndex(element => element.location[0] === loc1 && element.location[1] === loc2);
+            if(runNextGeneration[thisNeighbour] !== undefined) {
+                if(runNextGeneration[thisNeighbour].state === true) {
                     
                     numberOfAliveNeighbours = numberOfAliveNeighbours + 1;
                 }
@@ -31,24 +31,24 @@ export const nextGeneration = (currentGrid) => {
 
     //Create IF statements to handle each of the Game of Life rules
         
-        console.log(gameOfLifeObjectArray[a].state);
+        console.log(runNextGeneration[a].state);
 
-        if(numberOfAliveNeighbours === 3 && gameOfLifeObjectArray[a].state === true) {
-            gameOfLifeObjectArray[a].state = true;
-        } else if(numberOfAliveNeighbours === 2 && gameOfLifeObjectArray[a].state === true) {
-            gameOfLifeObjectArray[a].state = true;
+        if(numberOfAliveNeighbours === 3 && runNextGeneration[a].state === true) {
+            runNextGeneration[a].state = true;
+        } else if(numberOfAliveNeighbours === 2 && runNextGeneration[a].state === true) {
+            runNextGeneration[a].state = true;
         } else if(numberOfAliveNeighbours < 2) {
-            gameOfLifeObjectArray[a].state = false;
+            runNextGeneration[a].state = false;
         } else if(numberOfAliveNeighbours > 3) {
-            gameOfLifeObjectArray[a].state = false;
-        } else if(numberOfAliveNeighbours === 3 && gameOfLifeObjectArray[a].state === false) {
-            gameOfLifeObjectArray[a].state = true
+            runNextGeneration[a].state = false;
+        } else if(numberOfAliveNeighbours === 3 && runNextGeneration[a].state === false) {
+            runNextGeneration[a].state = true
         };
 
         
 
     };
-    console.log(gameOfLifeObjectArray);
-    return gameOfLifeObjectArray;
+    console.log(runNextGeneration);
+    return runNextGeneration;
     
 };

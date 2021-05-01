@@ -7,63 +7,10 @@ export const Grid = () => {
   const [grid, setGrid] = useState([]);
   const [gridHtml, setGridHtml] = useState([]);
 
-  const transFormGridIntoHtml = (currentGrid) => {
-    console.log('currentGrid',currentGrid);
-    let currentRow = 0;
-    let columns = [];
-    const createGridHtml = [];
-    for (let i = 0; i < currentGrid.length; i++) {
-        console.log('check this: ', currentGrid[i].location[0]);
-        console.log(currentGrid[i + 1]);
-      if (currentGrid[i].location[0] === currentRow && currentGrid[i].state === true) {
-          columns.push(<div className="liveCell" style={{ display: "inline-flex" }}>{currentGrid[i].location}</div>          )
-      };
-      
-      if (currentGrid[i].location[0] === currentRow && currentGrid[i].state === false) {
-        columns.push(
-              <div className="deadCell" style={{ display: "inline-flex" }}>{currentGrid[i].location}</div>
-          )
-      } 
-      else if (currentGrid[i].location[0] > currentRow && currentGrid[i + 1] !== undefined) {
-        createGridHtml.push(columns);
-        console.log(columns);
-          currentRow = currentGrid[i].location[0];
-          columns = [];
-          if (currentGrid[i].location[0] === currentRow && currentGrid[i].state === true) {
-            columns.push(<div className="liveCell" style={{ display: "inline-flex" }}>{currentGrid[i].location}</div>          )
-          };
-        
-          if (currentGrid[i].location[0] === currentRow && currentGrid[i].state === false) {
-            columns.push(
-                <div className="deadCell" style={{ display: "inline-flex" }}>{currentGrid[i].location}</div>
-            );
-          console.log("currentRow", currentRow);
-          }
-      }
-      else if (currentGrid[i + 1] === undefined) {
-        createGridHtml.push(columns);
-        console.log("undefined", columns);
-          currentRow = currentGrid[i].location[0];
-          columns = [];
-          if (currentGrid[i].location[0] === currentRow && currentGrid[i].state === true) {
-            columns.push(<div className="liveCell" style={{ display: "inline-flex" }}>{currentGrid[i].location}</div>          )
-          };
-        
-          if (currentGrid[i].location[0] === currentRow && currentGrid[i].state === false) {
-            columns.push(
-                <div className="deadCell" style={{ display: "inline-flex" }}>{currentGrid[i].location}</div>
-            );
-          }
-          console.log("currentRow", currentRow);
-      };
-  };
-  console.log("this is createGridHtml", createGridHtml);
-  setGridHtml(createGridHtml);
-  };
-
   useEffect(() => {
     const firstGen = FirstGeneration();
     transFormGridIntoHtml(firstGen);
+    setGrid(firstGen);
     // let currentRow = -1;
     // let columns = [];
     // const createGrid = [];
@@ -89,6 +36,58 @@ export const Grid = () => {
     // setGrid(createGrid);
     // console.log("this is grid:", grid);
 }, []);
+
+  const transFormGridIntoHtml = (currentGrid) => {
+    console.log('currentGrid',currentGrid);
+    let currentRow = 0;
+    let columns = [];
+    const createGridHtml = [];
+    for (let i = 0; i < currentGrid.length; i++) {
+        console.log('check this: ', currentGrid[i].location[0]);
+      if (currentGrid[i].location[0] === currentRow && currentGrid[i].state === true) {
+          columns.push(<div className="liveCell" style={{ display: "inline-flex" }}>{currentGrid[i].location}</div>          )
+      };
+      
+      if (currentGrid[i].location[0] === currentRow && currentGrid[i].state === false) {
+        columns.push(
+              <div className="deadCell" style={{ display: "inline-flex" }}>{currentGrid[i].location}</div>
+          )
+      } 
+      else if (currentGrid[i].location[0] > currentRow && currentGrid[i + 1] !== undefined) {
+        createGridHtml.push(columns);
+        console.log("hi columns: ", columns);
+          currentRow = currentGrid[i].location[0];
+          columns = [];
+          if (currentGrid[i].location[0] === currentRow && currentGrid[i].state === true) {
+            columns.push(<div className="liveCell" style={{ display: "inline-flex" }}>{currentGrid[i].location}</div>          )
+          };
+        
+          if (currentGrid[i].location[0] === currentRow && currentGrid[i].state === false) {
+            columns.push(
+                <div className="deadCell" style={{ display: "inline-flex" }}>{currentGrid[i].location}</div>
+            );
+          }
+      }
+      else if (currentGrid[i + 1] === undefined) {
+        createGridHtml.push(columns);
+        console.log("undefined columns", columns);
+          currentRow = currentGrid[i].location[0];
+          columns = [];
+          if (currentGrid[i].location[0] === currentRow && currentGrid[i].state === true) {
+            columns.push(<div className="liveCell" style={{ display: "inline-flex" }}>{currentGrid[i].location}</div>          )
+          };
+        
+          if (currentGrid[i].location[0] === currentRow && currentGrid[i].state === false) {
+            columns.push(
+                <div className="deadCell" style={{ display: "inline-flex" }}>{currentGrid[i].location}</div>
+            );
+          }
+          createGridHtml.push(columns);
+      };
+  };
+  console.log("this is createGridHtml", createGridHtml);
+  setGridHtml(createGridHtml);
+  };
 
   const processNextGeneration = () => {
     const newGrid = nextGeneration(grid);
