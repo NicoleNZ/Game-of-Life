@@ -1,11 +1,18 @@
 const express = require("express");
 const UserModel = require("../models/UserModel");
 const bcrypt = require("bcrypt");
-
+const bodyParser = require('body-parser');
+const jwt = require('jsonwebtoken');
+const config = require('../config');
 
 //--------------- ACTIVATE ROUTER ---------------//
 
 const router = express.Router();
+
+//--------------- PARSER ---------------//
+
+router.use(bodyParser.urlencoded({ extended: false }));
+router.use(bodyParser.json());
 
 //--------------- GET ROUTES ---------------//
 
@@ -18,6 +25,22 @@ router.get("/all", (request, response) => {
         response.send(users);
     });
 });
+
+router.get('/me', (request, response) => {
+    const token = request.headers['x-access-token'];
+    if (!token) return response.status(401).send({ auth: false, message: 'No token provided.' });
+    
+    jwt.verify(token, config.secret, (err, decoded) => {
+      if (err) return response.status(500).send({ auth: false, message: 'Failed to authenticate token.' });
+      
+      UserModel.findById(decoded.id, function (err, user) {
+        if (err) return response.status(500).send("There was a problem finding the user.");
+        if (!user) return response.status(404).send("No user found.");
+        
+        response.status(200).send(user);
+      });
+    });
+  });
 
 //--------------- POST ROUTES ---------------//
 
@@ -33,7 +56,12 @@ router.post("/register", (request, response) => {
     console.log("hashed user details: ", user);
 
     UserModel.create(user).then((userData) => {
-        response.send(userData);
+        // create a token
+        const token = jwt.sign({ id: userData._id }, config.secret, {
+          expiresIn: 86400 // expires in 24 hours
+        });
+        response.status(200).send({ userData, auth: true, token: token });
+        if (err) return response.status(500).send("There was a problem registering the user.")
     });
 });
 

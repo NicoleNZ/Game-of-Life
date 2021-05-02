@@ -23,7 +23,7 @@ app.use(cors());
 
 
 app.use("/internal", internalRouter);
-app.use("/api/user", userRouter);
+app.use("/api/auth", userRouter);
 app.use("/api/life", lifeRouter);
 
 //--------------- PORT ---------------//
