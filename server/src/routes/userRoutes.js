@@ -42,6 +42,10 @@ router.get('/me', (request, response) => {
     });
   });
 
+  router.get('/logout', (request, response) => {
+    response.status(200).send({ auth: false, token: null });
+  });
+
 //--------------- POST ROUTES ---------------//
 
 router.post("/register", (request, response) => {
@@ -70,12 +74,11 @@ router.post("/login", (request, response) => {
         if (userData) {
             const checkPasswordHash = bcrypt.compareSync(request.body.password, userData.password);
             if (checkPasswordHash) {
-                console.log("request.session: ", request.session);
-                request.session.user = {
-                    id: userData._id,
-                };
-                console.log("request.session: ", request.session);
-                response.send("Login successful");    
+                const token = jwt.sign({ id: userData._id }, config.secret, {
+                    expiresIn: 86400 // expires in 24 hours
+                })
+                response.status(200).send({ auth: true, token: token });
+                console.log("Login successful");
             } else {
                 response.status(401).send("Wrong password - try again!");
             }
@@ -84,16 +87,6 @@ router.post("/login", (request, response) => {
         }
     })
 });
-
-router.get("/logout", (request, response) => {
-    request.session.loggedIn = false;
-    response.send("User has logged out!");
-});
-
-router.get("/expire-session", (request, response) => {
-    request.session.destroy(() => response.send("OK"));
-});
-
 
 //--------------- EXPORT ---------------//
 

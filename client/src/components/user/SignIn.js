@@ -82,16 +82,20 @@ const SignIn = () => {
     const handleSignInSubmit = (e) => {
         e.preventDefault();
         console.log(formState);
-        fetch('http://localhost:3000/api/user/login', {
+        fetch('http://localhost:3000/api/auth/login', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({name: formState.username, password: formState.password})
         })
-            .then(response => response.json()
-            .then(history.replace('/grid'))
-            )
+        .then(response => response.json())
+        .then(data => {
+            window.localStorage.setItem('token', data.token)
+            if (data.token) {
+            history.replace('/grid')
+            }
+        })
     };
 
     return (

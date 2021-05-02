@@ -2,7 +2,7 @@
 export const transFormGridIntoHtml = (grid) => {
   return (
     <div>
-      <table>
+      <table className="gridTable">
         <tbody>
           {grid.map((rows) => {
             return (

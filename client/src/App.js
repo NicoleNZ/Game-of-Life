@@ -1,6 +1,6 @@
 import React from "react";
 import { Navigation } from "./components/Navigation";
-import { Grid } from "./components/Grid"
+import { Grid } from "./components/game/Grid"
 import './App.css';
 import { CreateGame } from "./components/CreateGame";
 
@@ -11,8 +11,9 @@ const App = () => {
   return (
     <div>
       <Navigation />
-      <CreateGame />
       <Grid />
+      <CreateGame />
+
     </div>
   );
 }

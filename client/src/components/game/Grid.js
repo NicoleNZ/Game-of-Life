@@ -34,9 +34,7 @@ export const Grid = () => {
   return (
     <Container className="grid-container">
       <Row>
-        <Col>
-          <Button onClick={processNextGeneration}>Button</Button>
-        </Col>
+          <Button className="go-button" onClick={processNextGeneration}>Next Generation</Button>
       </Row>
       <Row>
         <Col>

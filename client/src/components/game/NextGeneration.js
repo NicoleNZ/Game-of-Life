@@ -1,4 +1,4 @@
-import { findNeighbours } from "../constants";
+import { findNeighbours } from "../../constants";
 
 export const nextGeneration = (grid) => {
   // grid has multiple rows, each row has cells
