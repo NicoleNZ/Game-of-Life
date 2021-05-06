@@ -46,21 +46,28 @@ Beginning state of the game
 ![image](https://user-images.githubusercontent.com/74436332/117272232-192fb980-aeaf-11eb-85f4-3eacce33f14e.png)
 
 Game play
-![Click here to see a gif of the Game of Light in play!](https://i.makeagif.com/media/5-06-2021/_-t05x.gif)
+
+![A gif of the Game of Light in play](https://i.makeagif.com/media/5-06-2021/_-t05x.gif)
 
 
 List of Favourite Galaxies
+
 ![image](https://user-images.githubusercontent.com/74436332/117273962-b63f2200-aeb0-11eb-9823-34f157903aa7.png)
 
 
 Add a New Galaxy to your list
+
 ![image](https://user-images.githubusercontent.com/74436332/117274034-c9ea8880-aeb0-11eb-8d30-3a079909de27.png)
 
 
 Edit a galaxy
 
+![image](https://user-images.githubusercontent.com/74436332/117275177-e1764100-aeb1-11eb-8f29-fa4ba79dee9a.png)
+
 
 Delete a galaxy
+
+![image](https://user-images.githubusercontent.com/74436332/117275230-ed620300-aeb1-11eb-801d-3ea06e472ea9.png)
 
 
 ## 
