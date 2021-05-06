@@ -82,12 +82,12 @@ const SignIn = () => {
     const handleSignInSubmit = (e) => {
         e.preventDefault();
         console.log(formState);
-        fetch('http://localhost:3000/api/auth/login', {
+        fetch('http://localhost:4000/api/auth/login', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({name: formState.username, password: formState.password})
+            body: JSON.stringify({username: formState.username, password: formState.password})
         })
         .then(response => response.json())
         .then(data => {
