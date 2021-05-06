@@ -6,7 +6,7 @@ const cors = require("cors");
 
 const internalRouter = require("./routes/internalRoutes");
 const userRouter = require("./routes/userRoutes");
-const lifeRouter = require("./routes/lifeRoutes");
+const galaxyRouter = require("./routes/galaxyRoutes");
 
 //--------------- MONGOOSE ---------------//
 
@@ -20,11 +20,12 @@ mongoose.connect("mongodb://localhost:27017/gameoflife", {
 const app = express();
 app.use(express.json());
 app.use(cors());
+app.use(express.urlencoded({ extended: false }));
 
 
 app.use("/internal", internalRouter);
 app.use("/api/auth", userRouter);
-app.use("/api/life", lifeRouter);
+app.use("/api/galaxy", galaxyRouter);
 
 //--------------- PORT ---------------//
 

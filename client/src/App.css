@@ -8,7 +8,7 @@
   text-align: center;
   border-color: white;
   border-bottom-style: solid;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .header {
@@ -34,31 +34,69 @@
   float: right;
 }
 
-.form {
+.parent-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.column-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.galaxies-container {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 82.5%;
+  margin: 10px auto;
   background-color: black;
-  border-style: solid;
-  border-color: black;
-  width: 50%;
-  margin-top: 100px;
-  margin-left: auto;
-  margin-right: auto;
+  padding-bottom: 10px;
+}
+
+.card-container {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 82.5%;
+  margin: 10px auto;
+}
+
+.buttons  {
+  font-family: "Raleway", sans-serif;
+}
+
+.form {
+  width: 80%;
+  margin: 0 auto;
+  padding: 10px;
 }
 
 .form-heading {
-  color: gold;
+  color: yellow;
   text-align: center;
   font-family: "Raleway", sans-serif;
+  margin: 5px;
+  margin-bottom: 20px;
+  margin-top: 10px;
 }
 
 .labels {
-  color: gold;
+  color: yellow;
   font-family: "Raleway", sans-serif;
 }
 
+.input  {
+  width: 100%;
+  height: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 .liveCell {
-  border-style: solid;
   background-color: yellow;
-  border-width: 1px;
   width: 1px;
   height: 1px;
   padding: 7px;
@@ -66,19 +104,22 @@
 }
 
 .deadCell {
-  border-style: solid;
   background-color: black;
-  border-width: 1px;
   width: 1px;
   height: 1px;
   padding: 7px;
   margin-right: 1px;
 }
 
+.grid-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .grid {
   list-style-type: none;
   margin: 1px;
-  margin-left: 10px;
 }
 
 .gridTable {
@@ -89,7 +130,7 @@
   padding: 10px;
 }
 
-.go-button {
+#go-button {
   font-family: "Raleway", sans-serif;
   width: 300px;
   border: none;
@@ -98,6 +139,6 @@
   font-size: 16px;
   cursor: pointer;
   text-align: center;
-  margin-left: 39%;
-  margin-bottom: 10px;
+  margin: auto;
+  margin-bottom: 5px;
 }

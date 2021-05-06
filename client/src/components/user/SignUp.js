@@ -69,7 +69,7 @@ function Copyright() {
         const handleSignUpSubmit = (e) => {
             e.preventDefault();
             console.log(formState);
-            fetch('http://localhost:3000/api/users', {
+            fetch('http://localhost:3000/api/auth/register', {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',

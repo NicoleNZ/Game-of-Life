@@ -1,7 +1,6 @@
 const express = require("express");
 const UserModel = require("../models/UserModel");
 const bcrypt = require("bcrypt");
-const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
 const config = require('../config');
 
@@ -11,8 +10,9 @@ const router = express.Router();
 
 //--------------- PARSER ---------------//
 
-router.use(bodyParser.urlencoded({ extended: false }));
-router.use(bodyParser.json());
+const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 //--------------- GET ROUTES ---------------//
 

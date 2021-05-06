@@ -1,29 +1,19 @@
 {
-  "name": "game-of-life",
+  "name": "game-of-life-v2",
   "version": "1.0.0",
-  "description": "https://github.com/AnthonyMastrean/code-retreat",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/NicoleNZ/Game-of-Life.git"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/index.js"
   },
   "author": "Nicole Barnett",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/NicoleNZ/Game-of-Life/issues"
-  },
-  "homepage": "https://github.com/NicoleNZ/Game-of-Life#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
-    "body-parser": "^1.19.0",
-    "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
-    "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "mongoose": "^5.12.4"
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.12.7"
   }
 }

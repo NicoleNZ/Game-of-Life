@@ -32,15 +32,9 @@ export const Grid = () => {
   };
 
   return (
-    <Container className="grid-container">
-      <Row>
-          <Button className="go-button" onClick={processNextGeneration}>Next Generation</Button>
-      </Row>
-      <Row>
-        <Col>
-          <div className="grid">{gridHtml}</div>
-        </Col>
-      </Row>
-    </Container>
+    <div className="grid-container">
+      <Button id="go-button" onClick={processNextGeneration}>Next Generation</Button>
+      <div className="grid">{gridHtml}</div>
+    </div>
   );
 };

@@ -2,7 +2,7 @@ import React from "react";
 import { Navigation } from "./components/Navigation";
 import { Grid } from "./components/game/Grid"
 import './App.css';
-import { CreateGame } from "./components/CreateGame";
+import { GalaxyContainer } from "./components/galaxy/GalaxyContainer";
 
 
 const App = () => {
@@ -11,9 +11,10 @@ const App = () => {
   return (
     <div>
       <Navigation />
-      <Grid />
-      <CreateGame />
-
+      <div className="parent-container">
+          <Grid />
+      </div>
+      <GalaxyContainer />
     </div>
   );
 }
@@ -27,7 +28,7 @@ export default App;
 //   Switch,
 //   Route
 // } from 'react-router-dom';
-// import { Grid } from './components/Grid';
+// import { Grid } from './components/game/Grid';
 // import { SignIn } from "./components/user/SignIn"; 
 // import { SignUp } from "./components/user/SignUp";
 
