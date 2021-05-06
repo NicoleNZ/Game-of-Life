@@ -45,7 +45,7 @@ Beginning state of the game
 
 ![image](https://user-images.githubusercontent.com/74436332/117272232-192fb980-aeaf-11eb-85f4-3eacce33f14e.png)
 
-
+Game play
 ![Click here to see a gif of the Game of Light in play!](https://i.makeagif.com/media/5-06-2021/_-t05x.gif)
 
 
