@@ -59,7 +59,7 @@
 .card-container {
   display: grid;
   gap: 20px;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   width: 82.5%;
   margin: 10px auto;
 }
