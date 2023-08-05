@@ -1,4 +1,4 @@
-# Nicole's Game of Light 
+# Nicole's Game of Light - My General Assembly Bootcamp Final Project - May 2021
 ## based on Conway's Game of Life
 
 This MERN app is a playable, galactic interpretation of Conway's Game of Life.  It also contains functionality to record your favourite galaxies!  Perfect for those budding astronomers out there. 
